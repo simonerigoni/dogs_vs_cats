@@ -38,7 +38,7 @@ When an image is submitted with the **Classify Message** button the resulting ca
 
 ![Classification Result](images/classification_result.JPG)
 
-Results are better explained in this [blog post](https://medium.com/@simone.rigoni01/)
+Results are better explained in this [blog post](https://towardsdatascience.com/classify-dogs-and-cats-with-google-automl-2ae6eac64117)
 
 ## Licensing and Acknowledgements
 
