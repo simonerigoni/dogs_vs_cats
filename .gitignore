@@ -1,0 +1,18 @@
+# Generic file extensions to ignore
+
+## Python compiled files
+*.pyc
+
+# My project folders and files to ignore
+
+## Virtual enviroment folder
+.venv/
+
+## Temp stuff
+temp/
+
+## Logs
+logs/
+
+## Too big files
+dogs_vs_cats-034344a30798.json
