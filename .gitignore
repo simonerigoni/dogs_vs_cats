@@ -1,18 +1,23 @@
-# Generic file extensions to ignore
+# Files, directories or patterns that should be excluded from Git tracking
 
-## Python compiled files
-*.pyc
-
-# My project folders and files to ignore
-
-## Virtual enviroment folder
-.venv/
-
-## Temp stuff
+# Temp stuff
 temp/
 
-## Logs
-logs/
+# Python compiled files
+*.pyc
 
-## Too big files
+# Virtual enviroment
+.venv/
+
+# Pytest cache
+.pytest_cache/
+
+# Ruff cache
+.ruff_cache/
+
+# uv stuff
+.python-version
+uv.lock
+
+# Big files
 dogs_vs_cats-034344a30798.json
