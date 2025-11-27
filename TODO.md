@@ -1,14 +1,20 @@
-# To do list 
+# Dogs vs Cats with Google AutoML
 
-## New ideas
+## TODO
 
+Overview of the status of the tasks of this project.
 
-## To Do
+## Tasks
 
+### To do
 
-## In Progress
+- [ ] None
 
+### In Progress
 
-## Done ✓
+- [ ] None
 
-- [x] Initialize repository
+### Done ✓
+
+- [x] Project initialization
+- [x] Use uv and pre-commit
