@@ -19,5 +19,8 @@ temp/
 .python-version
 uv.lock
 
+# Local settings
+.env
+
 # Big files
 dogs_vs_cats-034344a30798.json
