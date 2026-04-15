@@ -1,5 +1,7 @@
 # Dogs vs Cats with Google AutoML
 
+** Big refactor needed. Code is pretty messy. I'll do it as soon as I have some free time.**
+
 ## Introduction
 
 The goal of the project is to use [Google AutoML](https://cloud.google.com/automl) to classify whether images contain either a dog or a cat.
