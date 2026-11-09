@@ -16,7 +16,6 @@ temp/
 .ruff_cache/
 
 # uv stuff
-uv.lock
 
 # Local settings
 .env

@@ -1,25 +1,35 @@
 [project]
 name = "dogs-vs-cats"
 version = "0.1.0"
-description = "Add your description here"
+description = "Dogs vs Cats with Google AutoML"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "dotenv>=0.9.9",
     "dash-bootstrap-components>=2.0.4",
     "dash>=3.3.0",
-    "ipykernel>=7.1.0",
+    "google-cloud-automl>=2.16.0",
+    "plotly>=5.0.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.1",
+    "pyright>=1.1.408",
+    "pytest-cov>=7.1.0",
     "ruff>=0.14.6",
 ]
 
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+# Keep ruff's pre-0.17 default rule set so ruff upgrades don't enable new lint rules
+select = ["E4", "E7", "E9", "F"]
+
 [tool.pyright]
-exclude = [".venv"]
+exclude = [".venv", "**/*.ipynb"]
 pythonVersion = "3.14"
 venvPath = "."
 venv = ".venv"
-
