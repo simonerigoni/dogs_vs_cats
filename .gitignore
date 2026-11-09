@@ -16,7 +16,6 @@ temp/
 .ruff_cache/
 
 # uv stuff
-.python-version
 uv.lock
 
 # Local settings
