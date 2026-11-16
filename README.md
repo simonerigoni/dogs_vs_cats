@@ -17,11 +17,14 @@ This project uses Python 3.11 and the most important packages are:
 
 ## Local configuration
 
-To setup a new local enviroment and install all dependencies you can run `.\my_scripts\Set-Up.ps1`. It will install:
+To set up a local environment and install all dependencies, run `uv sync` from the project folder.
 
-* [Python](https://www.python.org/)
-* [uv](https://docs.astral.sh/uv/)
-* [Pre-commit](https://pre-commit.com/)
+Then run the checks with:
+
+```bash
+uv run pre-commit run --all-files
+uv run pytest
+```
 
 Pre-commit is a framework for managing and maintaining multi-language pre-commit hooks. A pre-commit hook is a script that runs before a commit operation in a version control system. This allows to shift left code quality checks and remediations. You can change the hooks by updateing the file `.pre-commit-config.yaml`.
 

@@ -2,12 +2,11 @@
 # python predict.py
 # python predict.py --image_path data/test/2.jpg
 
-import os
 import argparse
+import os
 
 from google.cloud import automl_v1beta1
 from google.oauth2 import service_account
-
 
 BASE_DATA_DIRECTORY = "data/"
 KAGGLE_DATA = BASE_DATA_DIRECTORY + "kaggle/train/"
@@ -108,7 +107,7 @@ def get_prediction(
         )
         prediction_client = automl_v1beta1.PredictionServiceClient(credentials=credentials)
 
-        name = "projects/{}/locations/us-central1/models/{}".format(project_id, model_id)
+        name = f"projects/{project_id}/locations/us-central1/models/{model_id}"
         payload = {"image": {"image_bytes": content}}
         params = {}
         try:
@@ -117,7 +116,7 @@ def get_prediction(
                 request={"name": name, "payload": payload, "params": params}
             )
         except Exception as e:
-            request = "Error: {}".format(e)
+            request = f"Error: {e}"
 
         return request  # waits till request is returned
 
@@ -135,9 +134,5 @@ if __name__ == "__main__":
         print(predict_response)
     else:
         print(
-            "Image {} classified as {} with score {}".format(
-                image_path,
-                predict_response.payload[0].display_name,
-                predict_response.payload[0].classification.score,
-            )
+            f"Image {image_path} classified as {predict_response.payload[0].display_name} with score {predict_response.payload[0].classification.score}"
         )
