@@ -1,16 +1,15 @@
 # Image classifier dash application
 # python dash_dogs_vs_cats_classifier.py
 
+import base64
 import os
 import shutil
-import base64
 
 import dash
-from dash import dcc, html
 import dash_bootstrap_components as dbc
+from dash import dcc, html
 
 import predict
-
 
 DEFAULT_MEDIA_DIRECTORY = "media"
 EXTERNAL_STYLESHEETS = [
@@ -42,7 +41,7 @@ def remove_all_file_from_folder(folder_path):
     Returns
         None
     """
-    print("Remove all file from media folder\n\t{}".format(DEFAULT_MEDIA_DIRECTORY))
+    print(f"Remove all file from media folder\n\t{DEFAULT_MEDIA_DIRECTORY}")
     for file_object in os.listdir(folder_path):
         file_object_path = os.path.join(folder_path, file_object)
         if os.path.isfile(file_object_path) or os.path.islink(file_object_path):
@@ -65,7 +64,7 @@ def save_image(name, content):
     image_filepath = os.path.join(DEFAULT_MEDIA_DIRECTORY, name)
     data = content.encode("utf8").split(b";base64,")[1]
     with open(image_filepath, "wb") as fp:
-        print("Save uploaded image\n\t{}".format(image_filepath))
+        print(f"Save uploaded image\n\t{image_filepath}")
         fp.write(base64.decodebytes(data))
 
 
@@ -135,7 +134,7 @@ def get_encoded_image(image_filepath):
     """
     encoded_image = base64.b64encode(open(image_filepath, "rb").read())
     file_name, extension = image_filepath.rsplit(".", 1)
-    return "data:image/{};base64,{}".format(extension.lower(), encoded_image.decode())
+    return f"data:image/{extension.lower()};base64,{encoded_image.decode()}"
 
 
 def _create_app():
@@ -150,9 +149,7 @@ def _create_app():
     """
     app = dash.Dash(__name__, external_stylesheets=EXTERNAL_STYLESHEETS)
 
-    print(
-        "Check if media folder present and if not create it\n\t{}".format(DEFAULT_MEDIA_DIRECTORY)
-    )
+    print(f"Check if media folder present and if not create it\n\t{DEFAULT_MEDIA_DIRECTORY}")
     if not os.path.exists(DEFAULT_MEDIA_DIRECTORY):
         os.makedirs(DEFAULT_MEDIA_DIRECTORY)
 
@@ -321,7 +318,7 @@ def _create_app():
                 html.Div(
                     [
                         html.H2("Overview of Training Dataset", className="text-center"),
-                        html.H3("{} classes".format(number_of_classes), className="text-center"),
+                        html.H3(f"{number_of_classes} classes", className="text-center"),
                     ]
                 )
             )
@@ -382,7 +379,7 @@ def _create_app():
                 buffer_images.append((category, image))
         else:
             image_filepath = DEFAULT_MEDIA_DIRECTORY + "/" + files[0]
-            print("Classify image\n\t{}".format(image_filepath))
+            print(f"Classify image\n\t{image_filepath}")
             predict_response = predict.get_prediction(image_filepath)
 
             if isinstance(predict_response, str):
@@ -404,9 +401,7 @@ def _create_app():
                                 predict_response.payload[0].display_name, className="text-center"
                             ),
                             html.H1(
-                                "Score: {0:.2f}".format(
-                                    predict_response.payload[0].classification.score
-                                ),
+                                f"Score: {predict_response.payload[0].classification.score:.2f}",
                                 className="text-center",
                             ),
                         ]
