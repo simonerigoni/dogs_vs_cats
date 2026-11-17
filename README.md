@@ -10,7 +10,7 @@ The goal of the project is to use [Google AutoML](https://cloud.google.com/autom
 
 ## Software and Libraries
 
-This project uses Python 3.11 and the most important packages are:
+This project uses Python 3.15 and the most important packages are:
 
 * [Google Cloud](https://pypi.org/project/google-cloud/)
 * [dash](https://plot.ly/dash/)
