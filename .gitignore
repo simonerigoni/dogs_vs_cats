@@ -19,6 +19,10 @@ temp/
 
 # Local settings
 .env
+local.settings.json
 
 # Big files
-dogs_vs_cats-034344a30798.json.coverage
+dogs_vs_cats-034344a30798.json
+
+# pytest-cov stuff
+.coverage

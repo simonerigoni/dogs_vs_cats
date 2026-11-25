@@ -1,6 +1,6 @@
 # Uses a trained GCP model to predict the class for an input image
-# python predict.py
-# python predict.py --image_path data/test/2.jpg
+# python -m src.predict
+# python -m src.predict --image_path data/test/2.jpg
 
 import argparse
 import os
@@ -8,13 +8,25 @@ import os
 from google.cloud import automl_v1beta1
 from google.oauth2 import service_account
 
-BASE_DATA_DIRECTORY = "data/"
-KAGGLE_DATA = BASE_DATA_DIRECTORY + "kaggle/train/"
-GCP_DATA = BASE_DATA_DIRECTORY + "gcp/"
-DEFAULT_TEST_IMAGE = BASE_DATA_DIRECTORY + "/test/1.jpg"
-CREDENTIALS_JSON_FILE_PATH = "YOUR_CREDENTIALS_JSON_FILE_PATH"
-PROJECT_ID = "YOUR_PROJECT_ID"
-MODEL_ID = "YOUR_MODEL_ID"
+from src.config import (
+    CREDENTIALS_JSON_FILE_PATH,
+    DEFAULT_TEST_IMAGE,
+    GCP_FOLDER,
+    MODEL_ID,
+    PROJECT_ID,
+)
+
+__all__ = [
+    "CREDENTIALS_JSON_FILE_PATH",
+    "DEFAULT_TEST_IMAGE",
+    "GCP_FOLDER",
+    "MODEL_ID",
+    "PROJECT_ID",
+    "get_number_of_classes",
+    "get_prediction",
+    "get_sample_from_training_dataset",
+    "parse_input_arguments",
+]
 
 
 def parse_input_arguments():
@@ -47,8 +59,8 @@ def get_number_of_classes():
         number_of_classes (int): number of classes used
     """
     labels = []
-    for label_directory in os.listdir(GCP_DATA):
-        if os.path.isfile(GCP_DATA + "/" + label_directory):
+    for label_directory in os.listdir(GCP_FOLDER):
+        if os.path.isfile(GCP_FOLDER + "/" + label_directory):
             pass
         else:
             labels.append(label_directory)
@@ -66,16 +78,16 @@ def get_sample_from_training_dataset(number_of_samples=40):
         category_sample (dict): dictonary with category and image path
     """
     category_sample = []
-    for label_directory in os.listdir(GCP_DATA):
-        if os.path.isfile(GCP_DATA + "/" + label_directory):
+    for label_directory in os.listdir(GCP_FOLDER):
+        if os.path.isfile(GCP_FOLDER + "/" + label_directory):
             pass
         else:
-            for filename in os.listdir(GCP_DATA + "/" + label_directory)[
+            for filename in os.listdir(GCP_FOLDER + "/" + label_directory)[
                 : round(number_of_samples / get_number_of_classes())
             ]:
-                # print(label_directory, GCP_DATA + '/' + label_directory + '/' + filename)
+                # print(label_directory, GCP_FOLDER + '/' + label_directory + '/' + filename)
                 category_sample.append(
-                    (label_directory, GCP_DATA + "/" + label_directory + "/" + filename)
+                    (label_directory, GCP_FOLDER + "/" + label_directory + "/" + filename)
                 )
     return list((category, sample) for category, sample in category_sample)
 
@@ -98,6 +110,9 @@ def get_prediction(
     Returns:
         request: classification
     """
+
+    if not credentials_json_file_path or not project_id or not model_id:
+        return "Error: GCP credentials are not configured"
 
     with open(image_file_path, "rb") as ff:
         content = ff.read()
