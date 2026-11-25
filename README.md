@@ -26,7 +26,7 @@ uv run pre-commit run --all-files
 uv run pytest
 ```
 
-Pre-commit is a framework for managing and maintaining multi-language pre-commit hooks. A pre-commit hook is a script that runs before a commit operation in a version control system. This allows to shift left code quality checks and remediations. You can change the hooks by updateing the file `.pre-commit-config.yaml`.
+Pre-commit is a framework for managing and maintaining multi-language pre-commit hooks. A pre-commit hook is a script that runs before a commit operation in a version control system. This allows to shift left code quality checks and remediations. You can change the hooks by updating the file `.pre-commit-config.yaml`.
 
 To trigger the pre-commit hooks without an actual commit you can run `pre-commit run --all-files -v`.
 
@@ -73,7 +73,7 @@ When an image is submitted with the **Classify Message** button the resulting ca
 
 ## List of activities
 
-In the [TODO.md](TODO.md) file you can find the list of tasks and on going activities.
+In the [TODO.md](TODO.md) file you can find the list of tasks and ongoing activities.
 
 ## Licensing and Acknowledgements
 
@@ -81,4 +81,4 @@ Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Kaggle](https://www.
 
 ## Outro
 
-I hope this repository was interesting and thank you for taking the time to check it out. On my Medium you can find a more in depth [story](https://medium.com/@simone-rigoni01/classify-dogs-and-cats-with-google-automl-2ae6eac64117) and on my Blogspot you can find the same [post](https://simonerigoni01.blogspot.com/) in italian. Let me know if you have any question and if you like the content that I create feel free to [buy me a coffee](https://www.buymeacoffee.com/simonerigoni).
+I hope this repository was interesting and thank you for taking the time to check it out. On my Medium you can find a more in depth [story](https://medium.com/@simone-rigoni01/classify-dogs-and-cats-with-google-automl-2ae6eac64117) and on my Blogspot you can find the same [post](https://simonerigoni01.blogspot.com/) in Italian. Let me know if you have any question and if you like the content that I create feel free to [buy me a coffee](https://www.buymeacoffee.com/simonerigoni).
