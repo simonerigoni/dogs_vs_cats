@@ -178,7 +178,7 @@ def _create_app():
                                             html.Li(
                                                 html.A(
                                                     "Github",
-                                                    href="https://github.com/simonerigoni/kaggle",
+                                                    href="https://github.com/simonerigoni/dogs_vs_cats",
                                                 )
                                             )
                                         ],

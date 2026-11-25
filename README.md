@@ -17,6 +17,8 @@ This project uses Python 3.15 and the most important packages are:
 
 To set up a local environment and install all dependencies, run `uv sync` from the project folder.
 
+Copy [`.env.example`](.env.example) to `.env` and fill in the placeholders with your Google Cloud values. The application reads `ENV`, `BUCKET_NAME`, `CREDENTIALS_JSON_FILE_PATH`, `PROJECT_ID`, and `MODEL_ID` from that file (or from `local.settings.json`). Do not commit `.env` or the credentials JSON file.
+
 Then run the checks with:
 
 ```bash
