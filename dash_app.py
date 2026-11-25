@@ -1,5 +1,5 @@
 # Image classifier dash application
-# python dash_dogs_vs_cats_classifier.py
+# python dash_app.py
 
 import base64
 import os
@@ -9,7 +9,7 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html
 
-import predict
+from src import predict
 
 DEFAULT_MEDIA_DIRECTORY = "media"
 EXTERNAL_STYLESHEETS = [
@@ -416,4 +416,6 @@ def _create_app():
 
 if __name__ == "__main__":
     app = _create_app()
-    app.run_server(debug=True)
+    app.run(debug=True)
+else:
+    pass

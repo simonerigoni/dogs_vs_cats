@@ -1,7 +1,7 @@
 import base64
 
-import dash_dogs_vs_cats_classifier as dash_app
-import predict
+import dash_app
+from src import predict
 
 
 def test_parse_input_arguments_default(monkeypatch):
