@@ -18,7 +18,7 @@ dependencies = [
 
 [project.urls]
 Repository = "https://github.com/simonerigoni/dogs_vs_cats"
-Medium = "https://medium.com/data-science/classify-dogs-and-cats-with-google-automl-2ae6eac64117"
+Medium = "https://medium.com/@simone-rigoni01/classify-dogs-and-cats-with-google-automl-2ae6eac64117"
 
 [dependency-groups]
 dev = [

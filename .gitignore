@@ -15,7 +15,6 @@ temp/
 # Ruff cache
 .ruff_cache/
 
-# uv stuff
 
 # Local settings
 .env
